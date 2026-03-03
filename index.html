@@ -4,22 +4,24 @@
     <title>MCQ Practice</title>
     <link rel="stylesheet" href="style.css">
 
-    <script>
+
+<script>
 window.MathJax = {
   tex: {
     inlineMath: [['\\(', '\\)']],
     displayMath: [['\\[', '\\]']]
   }
+};
 
-    fetch("http://103.14.120.61:8000/")
+// 👇 fetch must be OUTSIDE the MathJax object
+fetch("http://103.14.120.61:8000/")
   .then(res => res.text())
   .then(data => {
       console.log("Server says:", data);
   })
   .catch(err => console.error(err));
-};
-        
 </script>
+    
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -39,3 +41,4 @@ window.MathJax = {
 </body>
 
 </html>
+
